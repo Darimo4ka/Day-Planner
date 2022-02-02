@@ -11,7 +11,8 @@ $(document).ready(function (){
     $("#time-display").text(today.format('MMM DD, YYYY [at] hh:mm:ss a'));
     // assign var to HTML
     var rowEl = $(".row"); 
-    var saveBtn =$(".col-md-1 col-sm-2 saveBtn");
+    var saveBtn =$(".col-md-1.col-sm-2.saveBtn");
+    console.log(saveBtn);
     // var todayEl =$("#currentDay");
     // var timeDisplay =$("#time-display");  
     //  work with colours and past present future function()

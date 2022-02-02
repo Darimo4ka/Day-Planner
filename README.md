@@ -15,4 +15,9 @@ Click into a timeblock to input information
 By clicking save button for that timeblock that event is saved in local storage. 
 I refresh the page, the saved events persist
 
+link to application:
+
+https://darimo4ka.github.io/Day-Planner/
+
+https://github.com/Darimo4ka/Day-Planner
 

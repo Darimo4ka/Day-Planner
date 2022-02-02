@@ -5,15 +5,15 @@
 $(document).ready(function (){
     //  ADD CURRENT DATE AT THE TOP OF THE PAGE
     var today = moment();
-    console.log(today);
+    // console.log(today);
 
 
-    $("#time-display").text(today.format("dddd, MMMM Do"));
+    $("#time-display").text(today.format('MMM DD, YYYY [at] hh:mm:ss a'));
     // assign var to HTML
     var rowEl = $(".row"); 
     var saveBtn =$(".col-md-1 col-sm-2 saveBtn");
-    var todayEl =$("#currentDay");
-    var timeDisplay =$("#time-display");  
+    // var todayEl =$("#currentDay");
+    // var timeDisplay =$("#time-display");  
     //  work with colours and past present future function()
 
     function checkTime()  {
@@ -25,38 +25,41 @@ $(document).ready(function (){
         if (workTime< now){
             $(this).children("input").addClass("past");
 
-            // console.log($(this).children("input"))
-            
         } else if (workTime === now){
-            $(this).children("input").addClass("present");}
-        else{
+            $(this).children("input").addClass("present");
+           
+        } else{
             $(this).children("input").addClass("future");
+
+            // console.log($(this).children("input"))
         }
     });
    }
+   saveBtn.on("click", function(){
+    //    console.log(element.onclick)
+
+        var inputText=$(this).siblings("input").val();
+
+        // console.log($(this).children("input"))
+
+        var timeSlot =$(this).parents().attr("id");
+
+        // console.log($(this).parents().attr("id"))
+
+        localStorage.setItem(timeSlot,inputText);
+        // console.log($(this).parents)
+});
    function getLocalstorage(){
-    rowEl.each(function() {
-        var saveTask = $(this).attr("id");
-        if(localStorage.getItem(saveTask) !==null){
+        rowEl.each(function() {
+            // console.log($(this))
+            var saveTask = $(this).attr("id");
+            if(localStorage.getItem(saveTask) !==null){
             $(this).children("input").val(localStorage.getItem(saveTask));
         }
             
     });
 }
-getLocalstorage();
- checkTime()
+   
+    getLocalstorage();
+    checkTime()
 })
-
-
-
-
-//    $(document).ready(function(){
-//     todayEl.text(moment().format("dddd,MMMM Do"));
-//     saveBtn.on("click", function(){
-//         var inputText=$(this).siblings("input").val();
-//         var timeSlot =$(this).parents().attr("id");
-//         localStorage.setItem(timeSlot,inputText);
-//     });
-//     checkTime();
-//     getLocalstorage();
-//     });
